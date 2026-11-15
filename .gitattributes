@@ -1,0 +1,9 @@
+*.PcbDoc binary
+*.SchDoc binary
+*.PcbLib binary
+*.SchLib binary
+*.IntLib binary
+*.PrjPcb -text
+*.stp -text
+*.step -text
+*.STEP -text

@@ -1,0 +1,14 @@
+# Altium Designer generated / local files
+History/
+__Previews/
+Project Logs for */
+Project Outputs for */
+*.PrjPcbStructure
+*.PcbDoc.htm
+*.~lock*
+*.SchDocPreview
+*.PcbDocPreview
+*.Annotation
+*.tmp
+*.bak
+Thumbs.db
