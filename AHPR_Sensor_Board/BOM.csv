@@ -1,0 +1,17 @@
+Line,Qty,Designators,Value,Description,Package,Manufacturer,Manufacturer Part Number,Fitted,Notes
+1,6,"C1, C2, C3, C4, C7, C8",100 nF,"Ceramic capacitor, 50 V, X7R, 10%",0603 (1608 metric),Murata,GRM188R71H104KA93D,Yes,Decoupling: U1 (C1 C2) / U2 (C3 C4) / U3 VCC (C7) and V_IO (C8)
+2,1,C6,1 uF,"Ceramic capacitor, 10 V, X7R, 10%",0603 (1608 metric),Murata,GRM188R71A105KA61D,Yes,GPS supply (+3V3_GPS)
+3,1,C5,10 uF,"Ceramic capacitor, 10 V, X7R, 10%",0805 (2012 metric),Murata,GRM21BR71A106KA73L,Yes,GPS supply bulk (+3V3_GPS)
+4,1,FB1,220 Ohm @ 100 MHz,"Chip ferrite bead, 0.05 Ohm DCR",0603 (1608 metric),Murata,BLM18KG221SN1D,Yes,Isolates +3V3_GPS from +3V3
+5,1,R4,1 kOhm,"Thick-film resistor, 1%, 0.1 W",0603 (1608 metric),Yageo,RC0603FR-071KL,Yes,Power LED current limit
+6,2,"R1, R2",4.7 kOhm,"Thick-film resistor, 1%, 0.1 W",0603 (1608 metric),Yageo,RC0603FR-074K7L,No (DNP),I2C pull-ups; fit only if the host has no SDA/SCL pull-ups
+7,1,D1,Green,"LED, green, SMD",0603 (1608 metric),Lite-On,LTST-C191KGKT,Yes,Power indicator
+8,1,U1,BMI270,"6-axis IMU (accelerometer + gyroscope), I2C 0x68",LGA-14 2.5 x 3.0 mm,Bosch Sensortec,BMI270,Yes,
+9,1,U2,BMP390,"Barometric pressure and temperature sensor, I2C 0x76",LGA-10 2.0 x 2.0 mm,Bosch Sensortec,BMP390,Yes,
+10,1,U3,SAM-M10Q,"GNSS receiver module with integrated patch antenna, I2C 0x42",15.5 x 15.5 mm module,u-blox,SAM-M10Q-00B,Yes,
+11,1,J1,4-pin JST GH,"Connector header, 1.25 mm pitch, right angle, SMD",SMD,JST,SM04B-GHS-TB(LF)(SN),Yes,3V3 / GND / SDA / SCL from power board J15. Mating cable: GHR-04V-S housing + SSHL-002T-P0.2 crimps
+12,1,J2,2-pin header,"Pin header, 2.54 mm pitch, 1 row, vertical, gold",Through hole,Samtec,TSW-102-07-G-S,Yes,GPS reset: short the pins to reset U3
+13,2,"TP1, TP2",Test point,"Test point, SMD, tin plated",SMD,Keystone Electronics,5015,Yes,TP1 = +3V3 / TP2 = GND
+14,4,"TP3, TP4, TP5, TP6",Test pad,"Bare SMD copper test pad, part of the PCB",-,-,-,No part,TP3 TXD / TP4 RXD / TP5 TIMEPULSE / TP6 SAFEBOOT_N
+15,4,"H1, H2, H3, H4",M2.5 hole,"Plated mounting hole tied to GND, part of the PCB",-,-,-,No part,2.75 mm hole / 6 mm pad
+16,1,PCB,AHPR Sensor Board Rev 2,"Bare board, 50 x 50 mm, 2 layers, 1.6 mm FR-4",-,-,-,Yes,Fab from AHPR_Sensor_Board.PcbDoc

@@ -51,6 +51,8 @@ Individual sheets:
 
 Carries the flight sensors on one I2C bus: a Bosch BMI270 IMU, a Bosch BMP390 barometer and a u-blox SAM-M10Q GPS receiver with its patch antenna at the centre of the board. A 4-pin JST GH connector (J1) brings in 3.3 V, ground, SDA and SCL from power board J15.
 
+**Bill of materials:** [BOM](AHPR_Sensor_Board/BOM.md) ([CSV for ordering](AHPR_Sensor_Board/BOM.csv))
+
 ### Schematic
 
 ![Sensor board schematic](images/sensor_board_schematic.png)
@@ -96,6 +98,8 @@ Full 3D model: [`AHPR_Sensor_Board.step`](AHPR_Sensor_Board/AHPR_Sensor_Board.st
 | [`AHPR_Sensor_Board.SchDoc`](AHPR_Sensor_Board/AHPR_Sensor_Board.SchDoc) | Schematic (one sheet) |
 | [`AHPR_Sensor_Board.PcbDoc`](AHPR_Sensor_Board/AHPR_Sensor_Board.PcbDoc) | Routed board: placement, routing, ground pours, silkscreen |
 | [`AHPR_Sensor_Board.step`](AHPR_Sensor_Board/AHPR_Sensor_Board.step) | 3D model of the assembled board |
+| [`BOM.md`](AHPR_Sensor_Board/BOM.md) | Bill of materials with part links and assembly notes |
+| [`BOM.csv`](AHPR_Sensor_Board/BOM.csv) | Bill of materials as a spreadsheet for ordering |
 | [`Libraries/`](AHPR_Sensor_Board/Libraries) | Schematic symbols, footprints and 3D models |
 | [`Backup_35x40_edge_GPS/`](AHPR_Sensor_Board/Backup_35x40_edge_GPS) | Earlier 35 x 40 mm layout with the GPS at the board edge |
 
