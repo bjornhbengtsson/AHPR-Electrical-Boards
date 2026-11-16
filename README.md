@@ -57,11 +57,15 @@ Carries the flight sensors on one I2C bus: a Bosch BMI270 IMU, a Bosch BMP390 ba
 
 ### 2D layout
 
+Bottom layer, showing the ground pour, ground vias and the bottom-side I2C and GPS supply routes.
+
 ![Sensor board 2D layout](images/sensor_board_2d.png)
 
 ### 3D model
 
 ![Sensor board 3D model](images/sensor_board_3d.png)
+
+![Sensor board 3D model, top view](images/sensor_board_3d_top.png)
 
 ### Files
 
@@ -69,7 +73,7 @@ Carries the flight sensors on one I2C bus: a Bosch BMI270 IMU, a Bosch BMP390 ba
 | --- | --- |
 | [`AHPR_Sensor_Board.PrjPcb`](AHPR_Sensor_Board/AHPR_Sensor_Board.PrjPcb) | Altium project |
 | [`AHPR_Sensor_Board.SchDoc`](AHPR_Sensor_Board/AHPR_Sensor_Board.SchDoc) | Schematic (one sheet) |
-| [`AHPR_Sensor_Board.PcbDoc`](AHPR_Sensor_Board/AHPR_Sensor_Board.PcbDoc) | Board: placement and ground pours, not yet routed |
+| [`AHPR_Sensor_Board.PcbDoc`](AHPR_Sensor_Board/AHPR_Sensor_Board.PcbDoc) | Routed board: placement, routing, ground pours, silkscreen |
 | [`Libraries/`](AHPR_Sensor_Board/Libraries) | Schematic symbols, footprints and 3D models |
 | [`Backup_35x40_edge_GPS/`](AHPR_Sensor_Board/Backup_35x40_edge_GPS) | Earlier 35 x 40 mm layout with the GPS at the board edge |
 
@@ -85,5 +89,6 @@ The pictures above are loaded from the [`images/`](images) folder. Save each exp
 | `images/sensor_board_schematic.png` | Sensor board schematic |
 | `images/sensor_board_2d.png` | Sensor board 2D layout |
 | `images/sensor_board_3d.png` | Sensor board 3D model |
+| `images/sensor_board_3d_top.png` | Sensor board 3D model, top view |
 
 Altium's `History`, `__Previews`, `Project Logs` and `Project Outputs` folders are not tracked.
