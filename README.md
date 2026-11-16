@@ -67,6 +67,8 @@ Bottom layer, showing the ground pour, ground vias and the bottom-side I2C and G
 
 ![Sensor board 3D model, top view](images/sensor_board_3d_top.png)
 
+![Sensor board 3D model, bottom view](images/sensor_board_3d_bottom.png)
+
 ### Files
 
 | File | Contents |
@@ -90,5 +92,6 @@ The pictures above are loaded from the [`images/`](images) folder. Save each exp
 | `images/sensor_board_2d.png` | Sensor board 2D layout |
 | `images/sensor_board_3d.png` | Sensor board 3D model |
 | `images/sensor_board_3d_top.png` | Sensor board 3D model, top view |
+| `images/sensor_board_3d_bottom.png` | Sensor board 3D model, bottom view |
 
 Altium's `History`, `__Previews`, `Project Logs` and `Project Outputs` folders are not tracked.
