@@ -69,6 +69,21 @@ Bottom layer, showing the ground pour, ground vias and the bottom-side I2C and G
 
 ![Sensor board 3D model, bottom view](images/sensor_board_3d_bottom.png)
 
+### Dimensions
+
+Full 3D model: [`AHPR_Sensor_Board.step`](AHPR_Sensor_Board/AHPR_Sensor_Board.step) (board with all component models, exported from Altium).
+
+| Side | Dimensions |
+| --- | --- |
+| Outline | 50 x 50 mm, square corners |
+| Board thickness | 1.6 mm, 2 copper layers |
+| Mounting holes | 4 x M2.5 (2.75 mm hole, 6 mm plated pad), centres 3.5 mm in from each edge, 43 x 43 mm apart |
+| Top side | All components. GPS module (U3) 15.5 x 15.5 mm at the board centre, 6.8 mm tall. J1 connector 4.25 mm tall. J2 header pins are the tallest point at about 8.4 mm. Everything else is under 1.6 mm |
+| Bottom side | No components. J2 pin tails stick out about 0.9 mm |
+| Bottom edge (J1) | J1 opens toward this edge, housing 0.55 mm inside it. Leave room beyond the edge for the cable plug |
+| Top edge | J2 reset header, centred 3.7 mm in from the edge |
+| Left and right edges | Test pads only, nothing overhangs |
+
 ### Files
 
 | File | Contents |
@@ -76,6 +91,7 @@ Bottom layer, showing the ground pour, ground vias and the bottom-side I2C and G
 | [`AHPR_Sensor_Board.PrjPcb`](AHPR_Sensor_Board/AHPR_Sensor_Board.PrjPcb) | Altium project |
 | [`AHPR_Sensor_Board.SchDoc`](AHPR_Sensor_Board/AHPR_Sensor_Board.SchDoc) | Schematic (one sheet) |
 | [`AHPR_Sensor_Board.PcbDoc`](AHPR_Sensor_Board/AHPR_Sensor_Board.PcbDoc) | Routed board: placement, routing, ground pours, silkscreen |
+| [`AHPR_Sensor_Board.step`](AHPR_Sensor_Board/AHPR_Sensor_Board.step) | 3D model of the assembled board |
 | [`Libraries/`](AHPR_Sensor_Board/Libraries) | Schematic symbols, footprints and 3D models |
 | [`Backup_35x40_edge_GPS/`](AHPR_Sensor_Board/Backup_35x40_edge_GPS) | Earlier 35 x 40 mm layout with the GPS at the board edge |
 
