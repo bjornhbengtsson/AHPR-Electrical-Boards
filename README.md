@@ -57,9 +57,13 @@ Carries the flight sensors on one I2C bus: a Bosch BMI270 IMU, a Bosch BMP390 ba
 
 ### 2D layout
 
+Top layer, with the component pads, signal and power routing and the top ground pour.
+
+![Sensor board 2D layout, top layer](images/sensor_board_2d_top.png)
+
 Bottom layer, showing the ground pour, ground vias and the bottom-side I2C and GPS supply routes.
 
-![Sensor board 2D layout](images/sensor_board_2d.png)
+![Sensor board 2D layout, bottom layer](images/sensor_board_2d.png)
 
 ### 3D model
 
@@ -105,7 +109,8 @@ The pictures above are loaded from the [`images/`](images) folder. Save each exp
 | `images/power_board_2d.png` | Power board 2D layout |
 | `images/power_board_3d.png` | Power board 3D model |
 | `images/sensor_board_schematic.png` | Sensor board schematic |
-| `images/sensor_board_2d.png` | Sensor board 2D layout |
+| `images/sensor_board_2d_top.png` | Sensor board 2D layout, top layer |
+| `images/sensor_board_2d.png` | Sensor board 2D layout, bottom layer |
 | `images/sensor_board_3d.png` | Sensor board 3D model |
 | `images/sensor_board_3d_top.png` | Sensor board 3D model, top view |
 | `images/sensor_board_3d_bottom.png` | Sensor board 3D model, bottom view |
