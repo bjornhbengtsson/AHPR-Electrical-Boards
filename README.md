@@ -13,22 +13,54 @@ Raspberry Pi 3 A+ HAT that takes the battery input and protects it, regulates 5 
 
 ### Schematic
 
-![Power board schematic](images/power_board_schematic.png)
+![Power board schematic, sheet 1: Battery Input and Protection](images/power_board_schematic_1.jpg)
 
-Individual sheets:
-[1 Battery Input and Protection](AHPR_Power_Management_and_Controls_Board/%28Sheet%2001%29%20Battery%20Input%20and%20Protection.jpg) ·
-[2 5 V and 3.3 V Regulation](AHPR_Power_Management_and_Controls_Board/%28Sheet%2002%29%205%20V%20and%203.3%20V%20Regulation.jpg) ·
-[3 Actuator Power and Dynamixel Bus](AHPR_Power_Management_and_Controls_Board/%28Sheet%2003%29%20Actuator%20Power%20and%20Dynamixel%20Bus.jpg) ·
-[4 Safety Control](AHPR_Power_Management_and_Controls_Board/%28Sheet%2004%29%20Safety%20Control.jpg) ·
-[5 Pi Interface and IO](AHPR_Power_Management_and_Controls_Board/%28Sheet%2005%29%20Pi%20Interface%20and%20IO.jpg)
+![Power board schematic, sheet 2: 5 V and 3.3 V Regulation](images/power_board_schematic_2.jpg)
+
+![Power board schematic, sheet 3: Actuator Power and Dynamixel Bus](images/power_board_schematic_3.jpg)
+
+![Power board schematic, sheet 4: Safety Control](images/power_board_schematic_4.jpg)
+
+![Power board schematic, sheet 5: Pi Interface and I/O](images/power_board_schematic_5.jpg)
 
 ### 2D layout
 
-![Power board 2D layout](images/power_board_2d.png)
+Top layer, with the component pads, power pours and signal routing.
+
+![Power board 2D layout, top layer](images/power_board_2d_top.png)
+
+Bottom layer, showing the ground pour, stitching vias and the bottom-side signal routes.
+
+![Power board 2D layout, bottom layer](images/power_board_2d.png)
 
 ### 3D model
 
 ![Power board 3D model](images/power_board_3d.png)
+
+![Power board 3D model, sensor and rangefinder connector side](images/power_board_3d_left.png)
+
+![Power board 3D model, connector side](images/power_board_3d_side.png)
+
+![Power board 3D model, top view](images/power_board_3d_top.png)
+
+![Power board 3D model, bottom view](images/power_board_3d_bottom.png)
+
+### Dimensions
+
+Full 3D model: [`AHPR_Power_Management_and_Controls_Board.step`](AHPR_Power_Management_and_Controls_Board/AHPR_Power_Management_and_Controls_Board.step) (board with all component models, exported from Altium).
+
+| Side | Dimensions |
+| --- | --- |
+| Outline | 65 x 56 mm, 3 mm corner radius (Raspberry Pi HAT size) |
+| Board thickness | 1.6 mm, 2 copper layers |
+| Mounting holes | 4 x M2.5 (H1-H4), centres 3.5 mm in from each edge, 58 x 49 mm apart to match the Pi |
+| Top side | All components except J2. Tallest parts are the XT60 battery connector (J1), the buck module (U1) and the electrolytic capacitors |
+| Bottom side | J2, the 2x20 female socket that plugs onto the Pi header |
+| Top edge | J2 Pi header row, spanning between H3 and H4 |
+| Left edge | J15 (SENS, sensor board) and J17 (RF, rangefinder) 4-pin JST GH connectors, opening outward |
+| Bottom edge | J1 XT60 battery input (BATT 2S) and U1 buck module, both sitting at the edge |
+| Right edge | J14 (PAN), J13 (LEGS) and J12 (Dynamixel in) 3-pin JST EH headers, and J8 servo header near H2 |
+| Board cut-out | 20 x 3 mm slot centred at (45, 11.5) mm for the Pi camera ribbon |
 
 ### Files
 
@@ -36,6 +68,7 @@ Individual sheets:
 | --- | --- |
 | [`AHPR_Power_Management_and_Controls_Board.PrjPcb`](AHPR_Power_Management_and_Controls_Board/AHPR_Power_Management_and_Controls_Board.PrjPcb) | Altium project |
 | [`AHPR_Power_Management_and_Controls_Board.PcbDoc`](AHPR_Power_Management_and_Controls_Board/AHPR_Power_Management_and_Controls_Board.PcbDoc) | Routed board |
+| [`AHPR_Power_Management_and_Controls_Board.step`](AHPR_Power_Management_and_Controls_Board/AHPR_Power_Management_and_Controls_Board.step) | 3D model of the assembled board |
 | [`AHPR_Power_Management_and_Controls_Board_Unrouted.PcbDoc`](AHPR_Power_Management_and_Controls_Board/AHPR_Power_Management_and_Controls_Board_Unrouted.PcbDoc) | Same placement and pours with tracks and vias removed |
 | [`Battery_Input_and_Protection.SchDoc`](AHPR_Power_Management_and_Controls_Board/Battery_Input_and_Protection.SchDoc) | Schematic sheet 1 |
 | [`5V_and_3V3_Regulation.SchDoc`](AHPR_Power_Management_and_Controls_Board/5V_and_3V3_Regulation.SchDoc) | Schematic sheet 2 |
@@ -109,9 +142,14 @@ The pictures above are loaded from the [`images/`](images) folder. Save each exp
 
 | File name | Shows |
 | --- | --- |
-| `images/power_board_schematic.png` | Power board schematic |
-| `images/power_board_2d.png` | Power board 2D layout |
+| `images/power_board_schematic_1.jpg` to `_5.jpg` | Power board schematic sheets 1 to 5 |
+| `images/power_board_2d_top.png` | Power board 2D layout, top layer |
+| `images/power_board_2d.png` | Power board 2D layout, bottom layer |
 | `images/power_board_3d.png` | Power board 3D model |
+| `images/power_board_3d_left.png` | Power board 3D model, sensor and rangefinder connector side |
+| `images/power_board_3d_side.png` | Power board 3D model, connector side |
+| `images/power_board_3d_top.png` | Power board 3D model, top view |
+| `images/power_board_3d_bottom.png` | Power board 3D model, bottom view |
 | `images/sensor_board_schematic.png` | Sensor board schematic |
 | `images/sensor_board_2d_top.png` | Sensor board 2D layout, top layer |
 | `images/sensor_board_2d.png` | Sensor board 2D layout, bottom layer |
