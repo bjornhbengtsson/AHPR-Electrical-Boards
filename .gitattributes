@@ -7,3 +7,5 @@
 *.stp -text
 *.step -text
 *.STEP -text
+# Keep the Altium artwork script out of GitHub language stats
+AHPR_Sensor_Board/Artwork/*.pas linguist-vendored
