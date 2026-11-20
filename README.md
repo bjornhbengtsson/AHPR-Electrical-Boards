@@ -98,7 +98,7 @@ Top layer, with the component pads, signal and power routing and the top ground 
 
 ![Sensor board 2D layout, top layer](images/sensor_board_2d_top.png)
 
-Bottom layer, showing the ground pour, ground vias and the bottom-side I2C and GPS supply routes.
+Bottom layer, showing the ground pour, tented ground vias and the bottom-side I2C and GPS supply routes.
 
 ![Sensor board 2D layout, bottom layer](images/sensor_board_2d.png)
 
@@ -120,7 +120,7 @@ Full 3D model: [`AHPR_Sensor_Board.step`](AHPR_Sensor_Board/AHPR_Sensor_Board.st
 | Board thickness | 1.6 mm, 2 copper layers |
 | Mounting holes | 4 x M2.5 (2.75 mm hole, 6 mm plated pad), centres 3.5 mm in from each edge, 43 x 43 mm apart |
 | Top side | All components. GPS module (U3) 15.5 x 15.5 mm at the board centre, 6.8 mm tall. J1 connector 4.25 mm tall. J2 header pins are the tallest point at about 8.4 mm. Everything else is under 1.6 mm |
-| Bottom side | No components. J2 pin tails stick out about 0.9 mm |
+| Bottom side | No components. Pen-and-ink painting on the bottom silkscreen. J2 pin tails stick out about 0.9 mm |
 | Bottom edge (J1) | J1 opens toward this edge, housing 0.55 mm inside it. Leave room beyond the edge for the cable plug |
 | Top edge | J2 reset header, centred 3.7 mm in from the edge |
 | Left and right edges | Test pads only, nothing overhangs |
