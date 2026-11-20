@@ -25,11 +25,11 @@ Raspberry Pi 3 A+ HAT that takes the battery input and protects it, regulates 5 
 
 ### 2D layout
 
-Top layer, with the component pads, power pours and signal routing.
+Top layer, with the component pads, power pours, signal routing and polarity marks.
 
 ![Power board 2D layout, top layer](images/power_board_2d_top.png)
 
-Bottom layer, showing the ground pour, stitching vias and the bottom-side signal routes.
+Bottom layer, showing the ground pour, stitching vias, bottom-side signal routes and the connector pin labels.
 
 ![Power board 2D layout, bottom layer](images/power_board_2d.png)
 
@@ -40,6 +40,8 @@ Bottom layer, showing the ground pour, stitching vias and the bottom-side signal
 ![Power board 3D model, sensor and rangefinder connector side](images/power_board_3d_left.png)
 
 ![Power board 3D model, connector side](images/power_board_3d_side.png)
+
+![Power board 3D model, actuator connector side](images/power_board_3d_right.png)
 
 ![Power board 3D model, top view](images/power_board_3d_top.png)
 
@@ -148,6 +150,7 @@ The pictures above are loaded from the [`images/`](images) folder. Save each exp
 | `images/power_board_3d.png` | Power board 3D model |
 | `images/power_board_3d_left.png` | Power board 3D model, sensor and rangefinder connector side |
 | `images/power_board_3d_side.png` | Power board 3D model, connector side |
+| `images/power_board_3d_right.png` | Power board 3D model, actuator connector side |
 | `images/power_board_3d_top.png` | Power board 3D model, top view |
 | `images/power_board_3d_bottom.png` | Power board 3D model, bottom view |
 | `images/sensor_board_schematic.png` | Sensor board schematic |
