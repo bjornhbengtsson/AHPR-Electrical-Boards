@@ -4,7 +4,7 @@ Raspberry Pi 3 A+ HAT that handles battery input and protection, 5 V / 3.3 V reg
 
 ## Opening the project
 
-Open `AHPR_Power_Management_and_Controls_Board.PrjPcb` in Altium Designer. Component libraries are in `Libraries/`.
+Open `AHPR_Power_Management_and_Controls_Board.PrjPcb` in Altium Designer. Component libraries are in `Libraries/`: schematic symbols in `SchLib/`, footprints in `PcbLib/` and STEP models in `3D_Models/`. Every placed part except the H1-H4 mounting holes has a 3D model; the TLV75533PDBVR (U2, U13) and SN74LVC1G74DCUR (U7) footprints embed TI's STEP models (`3D_Models/TLV75533PDBVR.STEP`, `3D_Models/SN74LVC1G74DCUR.stp`).
 
 ## Board files
 
@@ -32,5 +32,5 @@ Requirements are in `AHPR Lotus Power Management PCB - Rev 2 BOM & Board Definit
 
 ## Not yet done
 
-- Component-body collision check and antenna keep-out position are unverified
+- Antenna keep-out position is unverified (component-body clearance check is clean)
 - No fabrication outputs (Gerbers, drill, pick-and-place) have been generated
