@@ -1,4 +1,4 @@
-# AHPR Electrical Boards for NASA Student Launch Competition. Designed by Bjorn Bengtsson.
+# AHPR Electrical Boards for NASA Launch Competition. Designed by Bjorn Bengtsson.
 
 Altium Designer projects for the two AHPR Lotus electrical boards. Open the `.PrjPcb` inside a board's folder to load that project.
 
