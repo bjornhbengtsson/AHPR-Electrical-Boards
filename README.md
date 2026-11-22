@@ -225,3 +225,9 @@ The pictures above are loaded from the [`images/`](images) folder. Save each exp
 | `images/sensor_board_3d_bottom.png` | Sensor board 3D model, bottom view |
 
 Altium's `History`, `__Previews`, `Project Logs` and `Project Outputs` folders are not tracked.
+
+## License
+
+Copyright 2026 Bjorn Bengtsson.
+
+The board designs in this repository are released under the [CERN Open Hardware Licence Version 2 - Permissive](LICENSE) (CERN-OHL-P-2.0). You may use, modify, manufacture and distribute them, provided you keep this notice and the licence with the design files.
