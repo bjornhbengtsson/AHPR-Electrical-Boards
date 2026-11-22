@@ -33,4 +33,4 @@ Requirements are in `AHPR Lotus Power Management PCB - Rev 2 BOM & Board Definit
 ## Not yet done
 
 - Antenna keep-out position is unverified (component-body clearance check is clean)
-- No fabrication outputs (Gerbers, drill, pick-and-place) have been generated
+- Gerbers and NC drill files are attached to the Rev 2 (PDR) GitHub release; no pick-and-place files (boards are hand-assembled)
