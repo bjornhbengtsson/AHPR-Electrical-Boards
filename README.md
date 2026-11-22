@@ -100,6 +100,8 @@ Bottom layer, showing the ground pour, stitching vias, bottom-side signal routes
 
 ![Power board 3D model](images/power_board_3d.png)
 
+![Power board 3D model, front view from the battery connector](images/power_board_3d_front.png)
+
 ![Power board 3D model, sensor and rangefinder connector side](images/power_board_3d_left.png)
 
 ![Power board 3D model, connector side](images/power_board_3d_side.png)
@@ -212,6 +214,7 @@ The pictures above are loaded from the [`images/`](images) folder. Save each exp
 | `images/power_board_2d_top.png` | Power board 2D layout, top layer |
 | `images/power_board_2d.png` | Power board 2D layout, bottom layer |
 | `images/power_board_3d.png` | Power board 3D model |
+| `images/power_board_3d_front.png` | Power board 3D model, front view from the battery connector |
 | `images/power_board_3d_left.png` | Power board 3D model, sensor and rangefinder connector side |
 | `images/power_board_3d_side.png` | Power board 3D model, connector side |
 | `images/power_board_3d_right.png` | Power board 3D model, actuator connector side |
