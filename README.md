@@ -7,6 +7,69 @@ Altium Designer projects for the two AHPR Lotus electrical boards. Open the `.Pr
 | [Power Management and Controls Board](#power-management-and-controls-board-rev-2) | 65 x 56 mm, 2 layers | [`AHPR_Power_Management_and_Controls_Board/`](AHPR_Power_Management_and_Controls_Board) |
 | [Sensor Board](#sensor-board-rev-2) | 50 x 50 mm, 2 layers | [`AHPR_Sensor_Board/`](AHPR_Sensor_Board) |
 
+## Mission
+
+The boards fly in **Lotus**, the payload for Team Leviathan's entry in the 2027 NASA Student Launch (Advanced High Powered Rocketry team, Sun Devil Rocketry Club, Arizona State University). Lotus rides in a 3D-printed coupler between the upper and lower body tubes of a 64 in long, 4.1 in diameter fiberglass rocket (AeroTech K535W, about 4,790 ft predicted apogee). Fiberglass was chosen partly because it is RF-transparent, so the GPS can see the sky. The recovery avionics (Blue Jay primary, EasyMini backup) are a separate system; nothing on these boards fires a recovery charge.
+
+### Payload objectives
+
+| # | Objective | What the electronics do |
+| --- | --- | --- |
+| 01 | Upright: self-right after landing | Pi drives the leg-extension motor (XL330 on J13) |
+| 02 | Locate: find the NASA target | Camera image processing while the sensor-package motor (XL330 on J14) pans the head |
+| 03 | Image: clear, time-stamped capture | Pi camera on the CSI connector; pitch servo on J8 aims it |
+| 04 | Distance: computed without GPS | Laser rangefinder on J17 (UART) |
+| 05 | Log: keep the result and metadata | Image saved on the Pi with range and GPS position (SAM-M10Q) encoded |
+| 06 | Time: finish within 15 minutes of landing | Battery sized for a 3 h pad wait plus 15 min of active operation (R-8) |
+
+### Concept of operations
+
+1. **Pad wait and flight.** After power-up the Pi watches the accelerometer (BMI270) and barometer (BMP390) to detect launch.
+2. **Touchdown.** Landing is detected as constant altitude with no rotation.
+3. **Self-right.** The leg motor turns until enough steps are counted; the four legs extend and stand the payload up.
+4. **Extend the sensor package.** The sensor-package motor raises the head until it is fully extended and free to rotate.
+5. **Scan.** The head pans ±180° (so the cables do not wind up) while the camera looks for target candidates.
+6. **Pick the target.** The candidate with the highest target pixel count that is within rangefinder range is chosen.
+7. **Save.** A final picture is taken and ranged, and the image is saved with the range and GPS data encoded.
+
+## System Overview
+
+![AHPR Lotus system block diagram](images/system_block_diagram.png)
+
+The Raspberry Pi 3 A+ is the only controller. The power board sits on it as a HAT, takes the 2S LiPo, and feeds the sensor board (barometer, IMU, GPS over I2C), the pitch servo (PWM), the rangefinder (UART) and the two Dynamixel XL330 motors (TTL bus from the U2D2, with motor power from the board). The camera plugs straight into the Pi's CSI connector; its ribbon passes through a slot in the power board.
+
+## Design Constraints
+
+Fixed limits the design had to work within.
+
+| ID | Constraint | Source | Design impact |
+| --- | --- | --- | --- |
+| C-1 | Rocket diameter: 4.1 in (104 mm); the payload rides inside the coupler between the body tubes | Rocket airframe (PDR) | Boards had to be kept small to fit inside the coupler alongside the leg and sensor-package mechanisms |
+| C-2 | Low budget: about $400 for the payload avionics | Team funding | Boards had to be easy and cheap to manufacture: 2 layers, standard JLCPCB specs, common stocked parts, hand assembly in the club lab |
+| C-3 | Controller is a Raspberry Pi 3 A+ | Team decision | Power board is a 65 x 56 mm HAT on M2.5 x 16 mm standoffs |
+| C-4 | Power from one 2S 3000 mAh LiPo with an XT60 connector | Team decision | All rails derived from 6.0–8.4 V input |
+| C-5 | Boards must be assembled by hand in the club lab (no reflow oven or pick-and-place) | Team resources | 0603 minimum passives, leaded ICs where available, stencil + hotplate only for LGA/WSON/VSON parts |
+| C-6 | 2-layer FR-4, 1.6 mm | Fab cost | Ground pours on both layers, stitching vias |
+| C-7 | Launch day: Saturday, April 10, 2027, Huntsville, AL. April normals 11–24 °C, records −4 to 35 °C; payload bay operating range 0–50 °C | NASA SL; NWS Huntsville normals and extremes | Battery reserve checked down to the −4 °C record low; pack kept warm and foam-wrapped until launch |
+
+## Requirements
+
+What the electrical system shall do.
+
+| ID | Requirement | Implemented by |
+| --- | --- | --- |
+| R-1 | The power board shall supply regulated 5 V to the Pi above its 4.63 V undervoltage warning under full actuator load | U1 buck, trimmed above 5 V |
+| R-2 | The power board shall supply 3.3 V and I2C to the sensor board | Pi 3.3 V rail (+3V3_PI) and the Pi I2C bus, through J15 |
+| R-3 | The power board shall power two XL330 actuators and one PWM servo from a switched, current-limited rail (about 3.6 A) | U12 eFuse, +5V_ACT |
+| R-4 | The system shall de-energize all actuators if the Pi stops responding | U6 window watchdog, U7 fault latch |
+| R-5 | The system shall disable actuators on battery overvoltage (about 8.8 V) or undervoltage (about 6.4 V), and shut the 5 V rail off before the pack is over-discharged | U4 comparator (overvoltage trips SAFE_OK; buck off below 5.94 V, back on above 6.43 V), U3 INA226 alert at 6.4 V |
+| R-6 | The system shall report battery voltage, current and power to the Pi | U3 INA226 at 0x40 |
+| R-7 | The sensor board shall measure attitude rates, acceleration, pressure altitude and GNSS position over one I2C bus | BMI270 (0x68), BMP390 (0x76), SAM-M10Q (0x42) |
+| R-8 | The battery shall power the full mission (about 1.07 Ah: 3 h pad wait plus 15 min active) with margin | 2S 3000 mAh pack: 2.40 Ah usable at 80 % depth of discharge, about 55 % reserve at 25 °C, 49 % at 11 °C and 38 % at the −4 °C record low |
+| R-9 | Reverse polarity, short circuits and transients on the battery input shall not damage the boards | Q1 P-FET (reverse polarity), F1 5 A fuse, D1 TVS |
+| R-10 | The system shall detect launch and landing on its own | BMI270 accelerometer and BMP390 barometer on the sensor board |
+| R-11 | The system shall save a time-stamped image of the target with its range and GPS position | Pi camera (CSI), rangefinder on J17, SAM-M10Q GPS, Pi storage |
+
 ## Power Management and Controls Board (Rev 2)
 
 Raspberry Pi 3 A+ HAT that takes the battery input and protects it, regulates 5 V and 3.3 V, powers the actuators, drives the Dynamixel bus and handles safety control. It supplies 3.3 V and the I2C bus to the sensor board through J15.
@@ -61,7 +124,7 @@ Full 3D model: [`AHPR_Power_Management_and_Controls_Board.step`](AHPR_Power_Mana
 | Top edge | J2 Pi header row, spanning between H3 and H4 |
 | Left edge | J15 (SENS, sensor board) and J17 (RF, rangefinder) 4-pin JST GH connectors, opening outward |
 | Bottom edge | J1 XT60 battery input (BATT 2S) and U1 buck module, both sitting at the edge |
-| Right edge | J14 (PAN), J13 (LEGS) and J12 (Dynamixel in) 3-pin JST EH headers, and J8 servo header near H2 |
+| Right edge | J14 (SENSOR, sensor-package motor), J13 (DEPLOY, leg motor) and J12 (DXL IN, from the U2D2) 3-pin JST EH headers, and J8 servo header near H2 |
 | Board cut-out | 20 x 3 mm slot centred at (45, 11.5) mm for the Pi camera ribbon |
 
 ### Files
@@ -144,6 +207,7 @@ The pictures above are loaded from the [`images/`](images) folder. Save each exp
 
 | File name | Shows |
 | --- | --- |
+| `images/system_block_diagram.png` | System block diagram |
 | `images/power_board_schematic_1.jpg` to `_5.jpg` | Power board schematic sheets 1 to 5 |
 | `images/power_board_2d_top.png` | Power board 2D layout, top layer |
 | `images/power_board_2d.png` | Power board 2D layout, bottom layer |
